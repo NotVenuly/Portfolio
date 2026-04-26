@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oskari Aho | Portfolio</title>
+    <link rel="stylesheet" href="../CSS/mainCSS.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="hero-card">
+            <div class="hero-copy">
+                <p class="eyebrow">Hello, I am</p>
+                <h1>Oskari Aho</h1>
+                <p class="subheading">Game programmer</p>
+                <div class="hero-detail">
+                    <div>
+                        <h2>About me</h2>
+                        <p>I design game systems, build productivity tools, and keep my portfolio easy to expand. I like writing clean code, solving gameplay problems, and presenting work with strong visual clarity.</p>
+                    </div>
+                    <div class="hero-arrow">
+                        <span>Brief about me</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="portrait-ring"></div>
+                <span class="hero-tag">Picture of me</span>
+            </div>
+        </header>
+
+        <section class="page-preview full-screen-section">
+            <div class="preview-nav">
+                <button type="button" class="preview-tab active" data-preview="work">Work experience</button>
+                <button type="button" class="preview-tab" data-preview="study">Study</button>
+                <button type="button" class="preview-tab" data-preview="skills">Skills</button>
+            </div>
+            <div class="preview-canvas" id="previewCanvas"></div>
+        </section>
+
+        <section class="languages-section full-screen-section">
+            <div class="languages-header">
+                <p class="mini-label">Project selector</p>
+                <h2>Choose the language group</h2>
+            </div>
+            <div class="language-actions">
+                <div class="language-tabs">
+                    <button type="button" class="language-tab active" data-language="c-cpp">C/C++</button>
+                    <button type="button" class="language-tab" data-language="python">Python</button>
+                    <button type="button" class="language-tab" data-language="csharp">C#</button>
+                    <button type="button" class="language-tab" data-language="go">GO</button>
+                </div>
+                <p class="language-description" id="languageDescription">Old projects fading from the top while fading out until they no longer visible.</p>
+            </div>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </section>
+
+        <section class="contact-panel full-screen-section">
+            <div class="contact-left">
+                <div>
+                    <h1>Contact me</h1>
+                    <p class="contact-email">hello@example.com</p>
+                </div>
+                <div class="contact-links-list">
+                    <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Resume</a>
+                </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <form class="contact-form" id="contactForm">
+                    <label for="name">Your name</label>
+                    <input id="name" name="name" type="text" placeholder="Project contact" required>
+
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="example@email.com" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Message" rows="8" required></textarea>
+
+                    <button type="submit">Submit</button>
+                    <p id="contactFeedback" class="contact-feedback"></p>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="../Typescript/mainTS.bundle.js" defer></script>
+</body>
+</html>
