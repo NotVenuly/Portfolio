@@ -14,24 +14,113 @@ interface ProjectGroup {
     projects: ProjectItem[];
 }
 
-const previewSections = [
+interface PreviewItem {
+    title: string;
+    description: string;
+    link?: string;
+    articleLink?: string;
+}
+
+interface PreviewSection {
+    id: string;
+    label: string;
+    title: string;
+    items: PreviewItem[];
+}
+
+const previewSections: PreviewSection[] = [
     {
         id: "work",
-        label: "Work experience",
-        title: "Big header for currently viewed page",
-        description: "I build and improve game systems, support production tools, and ensure game code is maintainable and modular. This view is designed to fill the whole screen and stay clear as an entire project tile.",
+        label: "All of my ICT work experience and what they included",
+        title: "Work experience",
+        items: [
+            {
+                title: "Mandatory Trainings OY || Software Developer",
+                description: `My latest internship was completed with Mandatory Trainings OY, 
+                where I worked as a software developer along my co worker to continue the development of a prototype training software. 
+                The software was a training simulator for aircraft marshalls in which they can wave the sticks to guide a landing plane.
+                Mine and my co workers task was to continue developing the prototype software especially controlling what the sticks do and fixing bugs.
+                The software was made using Unity and C# as a programming language. Me and my co-worker used Github version control, to stay on track of our development.  
+
+                You can read more about the company by clicking the link `,
+                link: "https://mandatorytrainings.com/"
+            },
+            {
+                title: "Illusia RY/Odysseus || Junior programmer",
+                description:`I had my first internship at Odysseus LARP. I worked on a core puzzle for engineers made in unity with 2 of my classmates. 
+                In our puzzle you had to clean the coolant pipes of any residue and/or other trash using 2 terminals. 
+                On the first terminal a person controls a robot using my made ingame terminal, 
+                and on the other a person trying to manage cooling of the robot while telling the person controlling the robot where to go. 
+                My part of the puzzle was to make and manage the control terminal. 
+                The skills I required to do my part of the puzzle required alot of math and logic for the positions of the text as well as optimizing the game, 
+                basic game development knowledge was also needed for the overall feel of the puzzle.
+                You can find an article that talks about the engineer experience at Odysseus which also mentions and compliments our task here.`,
+                link: "https://www.odysseuslarp.com/",
+                articleLink: "https://criticalpathsite.wordpress.com/2024/09/02/odysseus-2024-a-retrospective/"
+            }
+        ],
     },
     {
-        id: "study",
-        label: "Study",
-        title: "Big header for currently viewed page",
-        description: "Focused on interactive systems, team collaboration, and technical polish. When selected, the study section slides into view from the side that was active before.",
+        id: "Education",
+        label: "All of my education and specific moments and items that stand out",
+        title: "Education",
+        items: [
+            {
+                title: "Business College Helsinki",
+                description: `I studied ICT vocational studies in Business College Helsinki, with game development.
+                My studies after peruskoulu was done with a double degree meaning I do Vocational school(Ammattikoulu) along side upper secondary school (Lukio).
+                I sped up my vocational school by a year, by doing projects faster and more efficently than expected, this left me with more time to study for extended math(pitkä matematiikka)`
+            },
+            {
+                title: "Töölön yhteislukio",
+                description: `I did upper secondary studies(lukio) along side my game development studies. In my upper secondary studies I replaced normal short(lyhyt matematiikka)
+                with extended math so that in the future I can go study Automation engineering at Aalto universit, which requires a C from extended math matriculation exams.
+                In the future I will study physics at Töölö, which is also required.`
+            },
+            {
+                title: "Lehtikuusen Peruskoulu",
+                description: `My basic studies were mostly normal aside from the fact that I got a stipendi from techinal work (tekninen käsityö) as well as graduating in a class that specializes in mathematics`
+            }
+        ],
     },
     {
         id: "skills",
-        label: "Skills",
-        title: "Big header for currently viewed page",
-        description: "Use this screen to highlight tools, languages, and production skills. The active panel is always the full view so each section feels like its own square workspace.",
+        label: "Skills I consider to be my best traits",
+        title: "Skills",
+        items: [
+            {
+                title: "Mathematics",
+                description: "I love working on mathematically complex problems especially if they require logical problem solving"
+            },
+            {
+                title: "C#/Unity",
+                description: "My education at Business College Helsinki consisted of mostly game development in Unity, which makes this area the area I'm most familiar in"
+            },
+            {
+                title: "C/C++",
+                description: "I've used C and C++ for many of my own projects that require faster and/or more precise code"
+            },
+            {
+                title: "GOLANG",
+                description: "I recently took up learning GOLANG"
+            },
+            {
+                title: "Game development",
+                description: "I've studied game development for 3 years and I'm about to graduate with close to the highest marks"
+            },
+            {
+                title: "Algorithms",
+                description: "I love looking and working on algorithms, because it ties well into my passion for mathematics"
+            },
+            {
+                title: "Python",
+                description: "Simpler and smaller projects of mine I often do in python, because it's easier"
+            },
+            {
+                title: "SQL",
+                description: "I've worked with SQL on many of my projects such as Flesh And Flame my last project at Business College Helsinki"
+            },
+        ],
     },
 ];
 
@@ -175,11 +264,22 @@ function renderPreviewCard(sectionId: string) {
     if (!section) {
         return "";
     }
+    const bodyContent = section.items
+        ? `<ul class="preview-features">${section.items.map((item) => {
+            const titleHtml = item.link
+                ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="preview-feature-title">${item.title}</a>`
+                : `<strong class="preview-feature-title">${item.title}</strong>`;
+            const articleHtml = item.articleLink
+                ? `<a href="${item.articleLink}" target="_blank" rel="noopener noreferrer" class="preview-feature-article">Read related article</a>`
+                : "";
+            return `<li>${titleHtml}<span>${item.description}</span>${articleHtml}</li>`;
+        }).join("")}</ul>`
+        : `<p>${section.items}</p>`;
     return `
         <div class="preview-card-content">
             <p class="mini-label">${section.label}</p>
             <h2>${section.title}</h2>
-            <p>${section.description}</p>
+            ${bodyContent}
         </div>
     `;
 }
@@ -196,23 +296,35 @@ function transitionPreview(newPreviewId: string) {
     const oldIndex = getPreviewIndex(activePreviewId);
     const newIndex = getPreviewIndex(newPreviewId);
     const direction = newIndex > oldIndex ? "right" : "left";
-    const outgoingCard = currentPreviewCard;
 
-    if (outgoingCard) {
+    if (!currentPreviewCard) {
+        const card = document.createElement("article");
+        card.className = "preview-card";
+        card.innerHTML = renderPreviewCard(newPreviewId);
+        previewCanvas.innerHTML = "";
+        previewCanvas.appendChild(card);
+        currentPreviewCard = card;
+    } else {
+        const outgoingCard = currentPreviewCard;
         outgoingCard.classList.remove("slide-in-from-right", "slide-in-from-left", "slide-out-left", "slide-out-right");
         outgoingCard.classList.add(direction === "right" ? "slide-out-left" : "slide-out-right");
-        outgoingCard.style.zIndex = "1";
-        outgoingCard.addEventListener("animationend", () => {
-            outgoingCard.remove();
-        }, { once: true });
+        outgoingCard.addEventListener(
+            "animationend",
+            () => {
+                outgoingCard.classList.remove("slide-out-left", "slide-out-right");
+                outgoingCard.innerHTML = renderPreviewCard(newPreviewId);
+                outgoingCard.classList.add(`slide-in-from-${direction}`);
+                outgoingCard.addEventListener(
+                    "animationend",
+                    () => {
+                        outgoingCard.classList.remove(`slide-in-from-${direction}`);
+                    },
+                    { once: true }
+                );
+            },
+            { once: true }
+        );
     }
-
-    const nextCard = document.createElement("article");
-    nextCard.className = `preview-card slide-in-from-${direction}`;
-    nextCard.innerHTML = renderPreviewCard(newPreviewId);
-    nextCard.style.zIndex = "2";
-    previewCanvas.appendChild(nextCard);
-    currentPreviewCard = nextCard;
 
     activePreviewId = newPreviewId;
     previewButtons.forEach((button) => {
