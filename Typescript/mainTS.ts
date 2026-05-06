@@ -28,6 +28,14 @@ interface PreviewSection {
     items: PreviewItem[];
 }
 
+// EmailJS type declaration
+declare const emailjs: {
+    init(publicKey: string): void;
+    send(serviceId: string, templateId: string, templateParams: any): Promise<any>;
+    sendForm(serviceId: string, templateId: string, form: HTMLFormElement): Promise<any>;
+};
+
+
 const previewSections: PreviewSection[] = [
     {
         id: "work",
@@ -97,12 +105,12 @@ const previewSections: PreviewSection[] = [
                 description: "My education at Business College Helsinki consisted of mostly game development in Unity, which makes this area the area I'm most familiar in"
             },
             {
-                title: "C/C++",
-                description: "I've used C and C++ for many of my own projects that require faster and/or more precise code"
+                title: "C/C++, GOLANG, Python, SQL",
+                description: "I've used these languages in my projects I'm also learning more abut them every day"
             },
             {
-                title: "GOLANG",
-                description: "I recently took up learning GOLANG"
+                title: "Microsoft Office",
+                description: "At school we were taught lots of basic ICT skills such as using Microsoft office apps like Excel or Word"
             },
             {
                 title: "Game development",
@@ -113,12 +121,12 @@ const previewSections: PreviewSection[] = [
                 description: "I love looking and working on algorithms, because it ties well into my passion for mathematics"
             },
             {
-                title: "Python",
-                description: "Simpler and smaller projects of mine I often do in python, because it's easier"
+                title: "Git",
+                description: "Every project of mine uses Git version control usually in Github making me very familiar with it"
             },
             {
-                title: "SQL",
-                description: "I've worked with SQL on many of my projects such as Flesh And Flame my last project at Business College Helsinki"
+                title: "Team work",
+                description: "I work best when I'm given clear instructions on what to do and in what way"
             },
         ],
     },
@@ -414,17 +422,33 @@ function setupPreviewTabs() {
 }
 
 function setupContactForm() {
+    // Initialize EmailJS with your public key
+    emailjs.init("N64Ik5rCXqdDblZ17");
+
     const form = document.getElementById("contactForm") as HTMLFormElement | null;
-    const feedback = document.getElementById("contactFeedback");
-    if (!form || !feedback) {
+    const btn = document.getElementById("contactSubmitButton") as HTMLInputElement | null;
+    
+    if (!form || !btn) {
         return;
     }
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();
-        feedback.textContent = "Thanks! Your message is ready to send. I will reply as soon as possible.";
-        feedback.classList.add("visible");
-        form.reset();
+        
+        btn.value = "Sending...";
+        
+        const serviceID = "service_67yles2";
+        const templateID = "template_6npdvwq";
+        
+        emailjs.sendForm(serviceID, templateID, form)
+            .then(() => {
+                btn.value = "Send Email";
+                alert("Thanks! Your message has been sent. I will reply as soon as possible.");
+                form.reset();
+            }, (err: any) => {
+                btn.value = "Send Email";
+                alert(JSON.stringify(err));
+            });
     });
 }
 

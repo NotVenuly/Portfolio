@@ -16,7 +16,11 @@
                 <div class="hero-detail">
                     <div>
                         <h2>About me</h2>
-                        <p>I design game systems, build productivity tools, and keep my portfolio easy to expand. I like writing clean code, solving gameplay problems, and presenting work with strong visual clarity.</p>
+                        <p>
+                            I'm an 18-year old game programming student at Business College Helsinki, with dreams to become an automation- or software engineer one day.
+                            I mainly like using C languages like C and C++ for my projects especially my more mathematically demanding projects.
+
+                        </p>
                     </div>
                     <div class="hero-arrow">
                         <span>Brief about me</span>
@@ -60,7 +64,7 @@
             <div class="contact-left">
                 <div>
                     <h1>Contact me</h1>
-                    <p class="contact-email">hello@example.com</p>
+                    <p class="contact-email">Oskari.aha@gmail.com</p>
                 </div>
                 <div class="contact-links-list">
                     <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -70,22 +74,26 @@
             </div>
             <div class="contact-form-wrapper">
                 <form class="contact-form" id="contactForm">
-                    <label for="name">Your name</label>
-                    <input id="name" name="name" type="text" placeholder="Project contact" required>
+                    <label for="name">Your name or company</label>
+                    <input id="name" name="name" type="text" placeholder="Your name or company" required>
 
                     <label for="email">Email</label>
                     <input id="email" name="email" type="email" placeholder="example@email.com" required>
 
+                    <label for="title">Subject</label>
+                    <input id="title" name="title" type="text" placeholder="Email subject" required>
+
                     <label for="message">Message</label>
                     <textarea id="message" name="message" placeholder="Message" rows="8" required></textarea>
 
-                    <button type="submit">Submit</button>
+                    <button type="submit" id="contactSubmitButton">Submit</button>
                     <p id="contactFeedback" class="contact-feedback"></p>
                 </form>
             </div>
         </section>
     </div>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="../Typescript/mainTS.bundle.js" defer></script>
 </body>
 </html>
