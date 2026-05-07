@@ -307,9 +307,142 @@ function renderProjectCards(group) {
                 <span>${project.highlight}</span>
             </div>
             <div class="project-tags">${project.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
-            <a class="project-link" href="${project.link}" target="_blank" rel="noopener noreferrer">Open ${group.label} file</a>
+            <button class="project-link" type="button" data-link="${project.link}" data-title="${project.title}">Open ${group.label} file</button>
         `;
     projectsGrid.appendChild(card);
+    const openButton = card.querySelector(".project-link");
+    if (openButton) {
+      openButton.addEventListener("click", () => {
+        showCodeRunnerModal(project);
+      });
+    }
+  });
+}
+function getLanguageFromPath(path) {
+  const lower = path.toLowerCase();
+  if (lower.endsWith(".go")) {
+    return "go";
+  }
+  if (lower.endsWith(".py")) {
+    return "python";
+  }
+  if (lower.endsWith(".cpp") || lower.endsWith(".cc") || lower.endsWith(".cxx")) {
+    return "cpp";
+  }
+  if (lower.endsWith(".c")) {
+    return "c";
+  }
+  if (lower.endsWith(".cs")) {
+    return "csharp";
+  }
+  return "python";
+}
+async function fetchSourceFile(path) {
+  const response = await fetch(path);
+  if (!response.ok) {
+    throw new Error(`Failed to load ${path}: ${response.statusText}`);
+  }
+  return response.text();
+}
+async function executeCode(language, source) {
+  const response = await fetch("http://localhost:5501/api/execute", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ language, source })
+  });
+  if (!response.ok) {
+    throw new Error(`Code execution failed: ${response.statusText}`);
+  }
+  const result = await response.json();
+  return result;
+}
+function showCodeRunnerModal(project) {
+  const modal = document.getElementById("codeRunnerModal");
+  const editor = document.getElementById("codeRunnerEditor");
+  const output = document.getElementById("codeRunnerOutput");
+  const title = document.getElementById("codeRunnerTitle");
+  const langLabel = document.getElementById("codeRunnerLanguage");
+  const runButton = document.getElementById("codeRunnerRunButton");
+  if (!modal || !editor || !output || !title || !langLabel || !runButton) {
+    return;
+  }
+  const language = getLanguageFromPath(project.link);
+  title.textContent = project.title;
+  langLabel.textContent = `Language: ${language}`;
+  runButton.dataset.language = language;
+  runButton.dataset.path = project.link;
+  editor.value = "Loading source...";
+  output.textContent = "";
+  modal.classList.add("visible");
+  fetchSourceFile(project.link).then((source) => {
+    editor.value = source;
+  }).catch((error) => {
+    editor.value = `Unable to load file:
+${error.message}`;
+  });
+}
+function setupCodeRunner() {
+  const modal = document.getElementById("codeRunnerModal");
+  const closeButton = document.getElementById("codeRunnerCloseButton");
+  const runButton = document.getElementById("codeRunnerRunButton");
+  const editor = document.getElementById("codeRunnerEditor");
+  const output = document.getElementById("codeRunnerOutput");
+  if (!modal || !closeButton || !runButton || !editor || !output) {
+    return;
+  }
+  closeButton.addEventListener("click", () => {
+    modal.classList.remove("visible");
+  });
+  runButton.addEventListener("click", async () => {
+    const language = runButton.dataset.language || getLanguageFromPath(runButton.dataset.path || "");
+    const source = editor.value;
+    output.textContent = "Running...";
+    runButton.disabled = true;
+    try {
+      const result = await executeCode(language, source);
+      const stdout = result.stdout ? atob(result.stdout) : "";
+      const stderr = result.stderr ? atob(result.stderr) : "";
+      const compileOutput = result.compile_output ? atob(result.compile_output) : "";
+      const statusMessages = {
+        1: "In Queue",
+        2: "Processing",
+        3: "Accepted",
+        4: "Wrong Answer",
+        5: "Time Limit Exceeded",
+        6: "Compilation Error",
+        7: "Runtime Error (SIGSEGV)",
+        8: "Runtime Error (SIGXFSZ)",
+        9: "Runtime Error (SIGFPE)",
+        10: "Runtime Error (SIGABRT)",
+        11: "Runtime Error (NZEC)",
+        12: "Runtime Error (Other)",
+        13: "Internal Error"
+      };
+      const status = statusMessages[result.status_id] || "Unknown status";
+      output.textContent = [
+        compileOutput ? `Compilation:
+${compileOutput}` : "",
+        stdout ? `Output:
+${stdout}` : "",
+        stderr ? `Errors:
+${stderr}` : "",
+        !stdout && !stderr && !compileOutput ? `Status: ${status}` : ""
+      ].filter(Boolean).join("\n\n") || "No output";
+    } catch (error) {
+      output.textContent = `Execution error: ${error instanceof Error ? error.message : String(error)}`;
+    } finally {
+      runButton.disabled = false;
+    }
+  });
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.classList.remove("visible");
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      modal.classList.remove("visible");
+    }
   });
 }
 function setActiveLanguage(languageId) {
@@ -365,28 +498,22 @@ function setupContactForm() {
   emailjs.init("N64Ik5rCXqdDblZ17");
   const form = document.getElementById("contactForm");
   const btn = document.getElementById("contactSubmitButton");
-  
   if (!form || !btn) {
     return;
   }
-
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    
     btn.value = "Sending...";
-    
     const serviceID = "service_67yles2";
     const templateID = "template_6npdvwq";
-    
-    emailjs.sendForm(serviceID, templateID, form)
-      .then(() => {
-        btn.value = "Send Email";
-        alert("Thanks! Your message has been sent. I will reply as soon as possible.");
-        form.reset();
-      }, (err) => {
-        btn.value = "Send Email";
-        alert(JSON.stringify(err));
-      });
+    emailjs.sendForm(serviceID, templateID, form).then(() => {
+      btn.value = "Send Email";
+      alert("Thanks! Your message has been sent. I will reply as soon as possible.");
+      form.reset();
+    }, (err) => {
+      btn.value = "Send Email";
+      alert(JSON.stringify(err));
+    });
   });
 }
 document.addEventListener("DOMContentLoaded", () => {
@@ -394,5 +521,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setActiveLanguage("c-cpp");
   setupPreviewTabs();
   transitionPreview("work");
+  setupCodeRunner();
   setupContactForm();
 });

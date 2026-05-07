@@ -93,6 +93,26 @@
         </section>
     </div>
 
+    <div class="code-runner-modal" id="codeRunnerModal" aria-hidden="true">
+        <div class="code-runner-panel">
+            <div class="code-runner-header">
+                <div>
+                    <h2 id="codeRunnerTitle">Run file</h2>
+                    <p id="codeRunnerLanguage">Language: </p>
+                </div>
+                <button type="button" id="codeRunnerCloseButton" class="code-runner-close">×</button>
+            </div>
+            <textarea id="codeRunnerEditor" class="code-runner-editor" spellcheck="false"></textarea>
+            <div class="code-runner-footer">
+                <button type="button" id="codeRunnerRunButton" class="code-runner-run-button">Run</button>
+                <div class="code-runner-output-panel">
+                    <h3>Output</h3>
+                    <pre id="codeRunnerOutput" class="code-runner-output"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="../Typescript/mainTS.bundle.js" defer></script>
 </body>
