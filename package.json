@@ -6,8 +6,8 @@
     "typescript": "^5.5.4"
   },
   "scripts": {
-    "build": "npx esbuild Typescript/mainTS.ts --bundle --outfile=Typescript/mainTS.bundle.js --platform=browser --format=esm",
-    "watch": "npx esbuild Typescript/mainTS.ts --bundle --outfile=Typescript/mainTS.bundle.js --platform=browser --format=esm --watch"
+    "build": "npx esbuild mainTS.ts --bundle --outfile=mainTS.bundle.js --platform=browser --format=esm",
+    "watch": "npx esbuild mainTS.ts --bundle --outfile=mainTS.bundle.js --platform=browser --format=esm --watch"
   },
   "dependencies": {
     "cors": "^2.8.6",

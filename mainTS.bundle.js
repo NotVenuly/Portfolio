@@ -1,4 +1,4 @@
-// Typescript/mainTS.ts
+// mainTS.ts
 var previewSections = [
   {
     id: "work",

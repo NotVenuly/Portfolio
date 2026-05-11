@@ -7,8 +7,8 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "rootDir": "Typescript",
+    "rootDir": ".",
     "outDir": "dist"
   },
-  "include": ["Typescript/**/*.ts"]
+  "include": ["/,**/*.ts", "mainTS.ts"]
 }
