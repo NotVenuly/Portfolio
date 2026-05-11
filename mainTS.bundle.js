@@ -457,6 +457,7 @@ function setActiveLanguage(languageId) {
   }
   if (languageDescription) {
     languageDescription.textContent = group.description;
+    //trying to update
   }
   const existingCards = Array.from(projectsGrid.querySelectorAll(".project-card"));
   if (existingCards.length > 0) {
