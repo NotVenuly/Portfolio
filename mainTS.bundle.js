@@ -14,7 +14,8 @@ var previewSections = [
                 The software was made using Unity and C# as a programming language. Me and my co-worker used Github version control, to stay on track of our development.  
 
                 You can read more about the company by clicking the link `,
-        link: "https://mandatorytrainings.com/"
+        link: "https://mandatorytrainings.com/",
+        date: "05.2025 - 12.2025"
       },
       {
         title: "Illusia RY/Odysseus || Junior programmer",
@@ -27,7 +28,8 @@ var previewSections = [
                 basic game development knowledge was also needed for the overall feel of the puzzle.
                 You can find an article that talks about the engineer experience at Odysseus which also mentions and compliments our task here.`,
         link: "https://www.odysseuslarp.com/",
-        articleLink: "https://criticalpathsite.wordpress.com/2024/09/02/odysseus-2024-a-retrospective/"
+        articleLink: "https://criticalpathsite.wordpress.com/2024/09/02/odysseus-2024-a-retrospective/",
+        date: "03.2024 - 06.2024"
       }
     ]
   },
@@ -68,7 +70,7 @@ var previewSections = [
         description: "My education at Business College Helsinki consisted of mostly game development in Unity, which makes this area the area I'm most familiar in"
       },
       {
-        title: "C/C++, GOLANG, Python, SQL",
+        title: "C/C++, GOLANG, Python, SQL, Typescript/Javascript, NodeJS, HTML and CSS",
         description: "I've used these languages in my projects I'm also learning more abut them every day"
       },
       {
@@ -234,8 +236,9 @@ function renderPreviewCard(sectionId) {
   }
   const bodyContent = section.items ? `<ul class="preview-features">${section.items.map((item) => {
     const titleHtml = item.link ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="preview-feature-title">${item.title}</a>` : `<strong class="preview-feature-title">${item.title}</strong>`;
+    const dateHtml = item.date ? `<span class="preview-feature-date">${item.date}</span>` : "";
     const articleHtml = item.articleLink ? `<a href="${item.articleLink}" target="_blank" rel="noopener noreferrer" class="preview-feature-article">Read related article</a>` : "";
-    return `<li>${titleHtml}<span>${item.description}</span>${articleHtml}</li>`;
+    return `<li>${titleHtml}${dateHtml}<span>${item.description}</span>${articleHtml}</li>`;
   }).join("")}</ul>` : `<p>${section.items}</p>`;
   return `
         <div class="preview-card-content">

@@ -142,10 +142,19 @@ body {
 }
 
 .preview-feature-title {
+    font-size: 1.15rem;
     display: block;
     font-weight: 800;
     color: #ffffff;
     margin-bottom: 0.15rem;
+}
+
+.preview-feature-date {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
 }
 
 .preview-feature-title a {
