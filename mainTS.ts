@@ -256,7 +256,53 @@ const projectGroups = [
                 isInProgress: false
             }
         ],
+
+        
     },
+    {
+        id: "typescript",
+        label: "TypeScript/JS",
+        description: "Projects, where I mainly use TypeScript or JavaScript",
+        projects: [
+            {
+                title: "Portfolio Website",
+                description: "This portfolio website built with TypeScript, HTML and CSS",
+                link: "https://github.com/NotVenuly/Portfolio",
+                tags: ["TypeScript", "Frontend", "Portfolio"],
+                highlight: "The site you're looking at right now",
+                isNew: true,
+                isInProgress: false,
+            },
+            {
+                title: "Typescript training",
+                description: "Training to learn the required Typescript and JS skills to make my portfolio",
+                link: "https://github.com/NotVenuly/Typescript-training",
+                tags: ["TypeScript", "Training", "Portfolio"],
+                highlight: "Logic used in making my portfolio",
+                isNew: true,
+                isInProgress: false,
+            },
+        ],
+    },
+    {
+        id: "nodejs",
+        label: "NodeJS",
+        description: "Projects, where I mainly use Node.js for backend or tooling",
+        projects: [
+            {
+                title: "NodeJS training",
+                description: "Training to learn how to host my own server that can run code from a request from a website",
+                link: "https://github.com/NotVenuly/Node-training",
+                tags: ["training", "API", "Request based code execution"],
+                highlight: "Will be used in the future to make running code possible in my Portfolio",
+                isNew: true,
+                isInProgress: false,
+            },
+            
+        ],
+    },
+
+    
 ];
 
 const projectsGrid = document.getElementById("projectsGrid") as HTMLElement | null;
