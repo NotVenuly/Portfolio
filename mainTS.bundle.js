@@ -100,7 +100,7 @@ var projectGroups = [
   {
     id: "c-cpp",
     label: "C/C++",
-    description: "Porjects that mainly use C/C++",
+    description: "Projects that mainly use C/C++",
     projects: [
       {
         title: "Physics Prototype",
