@@ -305,7 +305,7 @@ body {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 22px;
 }
 
@@ -321,6 +321,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
     animation: appearUp 0.2s forwards ease;
+    max-width: 500px;  /* ← Add this */
 }
 
 .project-card-top {
@@ -337,18 +338,34 @@ body {
     color: #f5f7ff;
 }
 
+.project-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
 .project-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-radius: 999px;
-    background: rgba(255,255,255,0.12);
-    color: #ebf4ff;
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: 700;
+}
+
+.badge-new {
+    background: rgba(75, 227, 182, 0.2);
+    color: #4be3b6;
+    border: 1px solid rgba(75, 227, 182, 0.3);
+}
+
+.badge-progress {
+    background: rgba(255, 200, 60, 0.2);
+    color: #ffc83c;
+    border: 1px solid rgba(255, 200, 60, 0.3);
 }
 
 .project-description {

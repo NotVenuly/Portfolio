@@ -2,9 +2,11 @@ interface ProjectItem {
     title: string;
     description: string;
     link: string;
+    githubLink?: string;
     tags: string[];
     highlight: string;
     isNew: boolean;
+    isInProgress: boolean;
 }
 
 interface ProjectGroup {
@@ -142,28 +144,22 @@ const projectGroups = [
         description: "Projects, where I mainly use C/C++",
         projects: [
             {
-                title: "Physics Prototype",
-                description: "A responsive C++ demo that tracks motion, collision logic, and game feel.",
-                link: "../OtherCode/C-Cpp/project.cpp",
-                tags: ["Game systems", "Native", "Performance"],
-                highlight: "Launch a native gameplay prototype.",
+                title: "Overcomplicated calculator",
+                description: "A basic c++ calculator but made overly complicated",
+                link: "https://github.com/NotVenuly/Over-complicated-calculator",
+                tags: ["Bit shifting", "Mathematics"],
+                highlight: "Good training for learning how bit shifting and low level programming works",
                 isNew: false,
+                isInProgress: true,
             },
             {
-                title: "Render Tool",
-                description: "A small C++ renderer helper for debugging shader passes and draw order.",
-                link: "../OtherCode/C-Cpp/project.cpp",
-                tags: ["Graphics", "Tools", "Debug"],
-                highlight: "Used to preview rendering layers quickly.",
+                title: "GL physics",
+                description: "Physics visalizer in C++ using openGL",
+                link: "https://github.com/NotVenuly/GL-Physics",
+                tags: ["Graphics", "Physics", "Mathematics"],
+                highlight: "A project meant ot teach me more about simulating physics in code",
                 isNew: true,
-            },
-            {
-                title: "Gameplay AI",
-                description: "A C++ AI system sample for decision trees and movement logic.",
-                link: "../OtherCode/C-Cpp/project.cpp",
-                tags: ["AI", "Game logic", "Systems"],
-                highlight: "Designed for robust enemy behavior.",
-                isNew: false,
+                isInProgress: true,
             },
         ],
     },
@@ -179,6 +175,7 @@ const projectGroups = [
                 tags: ["Automation", "Tools", "Python"],
                 highlight: "Fast editing and repeatable pipeline generation.",
                 isNew: true,
+                isInProgress: false
             },
             {
                 title: "Gameplay simulator",
@@ -187,6 +184,7 @@ const projectGroups = [
                 tags: ["Simulation", "Tuning", "Prototype"],
                 highlight: "Simulation tuned for quick iteration.",
                 isNew: false,
+                isInProgress: false
             },
             {
                 title: "Analytics exporter",
@@ -195,6 +193,7 @@ const projectGroups = [
                 tags: ["Data", "Export", "Metrics"],
                 highlight: "Collects session data for fast review.",
                 isNew: false,
+                isInProgress: false
             },
         ],
     },
@@ -204,28 +203,32 @@ const projectGroups = [
         description: "Projects, where I mainly use C#",
         projects: [
             {
-                title: "Tool window demo",
-                description: "A modular C# editor tool that adapts to different game workflows.",
-                link: "../OtherCode/CSharp/Project.cs",
-                tags: ["Editor tool", "Unity", "C#"],
-                highlight: "Designed to improve workflow with a clean UI.",
+                title: "Flesh And Flame",
+                description: `A 3d, First person, silly Horror and cooking game. 
+                Order and cook ingredients from the deepest parts of hell and see what you can cook up.`,
+                link: "https://sillylix.itch.io/flesh-and-flame",
+                tags: ["Game", "Unity", "C#"],
+                highlight: "Final project for my school",
                 isNew: false,
+                isInProgress: false
             },
             {
-                title: "Game service",
-                description: "A C# backend sample for matchmaking and player metrics.",
-                link: "../OtherCode/CSharp/Project.cs",
-                tags: ["Network", "Services", "Backend"],
-                highlight: "Built to support multiplayer systems.",
-                isNew: true,
+                title: "Kyber Kittens",
+                description: "a cozy cyberpunk style pet caring game made for the 2026 international college jam #6",
+                link: "https://venuly.itch.io/kyber-kittens",
+                tags: ["Game", "Unity", "Gamejam"],
+                highlight: "Made in only 4 days",
+                isNew: false,
+                isInProgress: false
             },
             {
-                title: "Input handler",
-                description: "A reusable C# component for player controls and action mapping.",
+                title: "Repair and Cooling puzzle",
+                description: "A small cooling puzzle made for the Odysseus LARP, that is meant to be played with 2 players",
                 link: "../OtherCode/CSharp/Project.cs",
-                tags: ["Controls", "Input", "Component"],
-                highlight: "A strong base for consistent input handling.",
+                tags: ["In game terminal", "2-players", "Real world use"],
+                highlight: "I made the terminal side of the game by myself",
                 isNew: false,
+                isInProgress: false
             },
         ],
     },
@@ -235,29 +238,23 @@ const projectGroups = [
         description: "Projects, where I mainly use GO",
         projects: [
             {
-                title: "Build server",
-                description: "A lightweight Go server for remote asset processing and reports.",
-                link: "../OtherCode/Go/project.go",
+                title: "Go language training",
+                description: "A small training software that uses basic GO functions as well as file management to make and save bills",
+                link: "https://github.com/NotVenuly/GO-bill",
                 tags: ["Server", "Go", "Toolchain"],
                 highlight: "Optimized for fast iteration and small deployments.",
-                isNew: true,
+                isNew: false,
+                isInProgress: false
             },
             {
-                title: "HTTP logger",
-                description: "A Go service that collects build logs and stores metadata.",
-                link: "../OtherCode/Go/project.go",
+                title: "File backupper",
+                description: "A small software made in go that takes in the location of a given file and copies it in the root folder",
+                link: "https://github.com/NotVenuly/File-Backupper",
                 tags: ["Logging", "API", "Service"],
                 highlight: "Built for reliable log collection.",
                 isNew: false,
-            },
-            {
-                title: "CLI helper",
-                description: "A command-line Go utility for project scaffolding and preview builds.",
-                link: "../OtherCode/Go/project.go",
-                tags: ["CLI", "Tool", "Automation"],
-                highlight: "Scaffolds new projects quickly.",
-                isNew: false,
-            },
+                isInProgress: false
+            }
         ],
     },
 ];
@@ -359,23 +356,19 @@ function renderProjectCards(group: ProjectGroup) {
         card.innerHTML = `
             <div class="project-card-top">
                 <span class="project-title">${project.title}</span>
-                ${project.isNew ? "<span class=\"project-badge\">New</span>" : ""}
+                <div class="project-badges">
+                    ${project.isNew ? '<span class="project-badge badge-new">New</span>' : ""}
+                    ${project.isInProgress ? '<span class="project-badge badge-progress">In Progress</span>' : ""}
+                </div>
             </div>
             <p class="project-description">${project.description}</p>
             <div class="project-meta">
                 <span>${project.highlight}</span>
             </div>
             <div class="project-tags">${project.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
-            <button class="project-link" type="button" data-link="${project.link}" data-title="${project.title}">Open ${group.label} file</button>
+            <a href="${project.githubLink || project.link}" target="_blank" rel="noopener noreferrer" class="project-link">Open link</a>
         `;
         projectsGrid.appendChild(card);
-
-        const openButton = card.querySelector<HTMLButtonElement>(".project-link");
-        if (openButton) {
-            openButton.addEventListener("click", () => {
-                showCodeRunnerModal(project);
-            });
-        }
     });
 }
 
