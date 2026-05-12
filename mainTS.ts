@@ -224,9 +224,18 @@ const projectGroups = [
             {
                 title: "Repair and Cooling puzzle",
                 description: "A small cooling puzzle made for the Odysseus LARP, that is meant to be played with 2 players",
-                link: "../OtherCode/CSharp/Project.cs",
+                link: "https://sillylix.itch.io/jerf-pcsi",
                 tags: ["In game terminal", "2-players", "Real world use"],
-                highlight: "I made the terminal side of the game by myself",
+                highlight: "Instructions and context for the game is all in the Itch description",
+                isNew: false,
+                isInProgress: false
+            },
+            {
+                title: "Spikey adventures of Spik",
+                description: "A small game I made for a game jam in 7 hours with a friend of mine during my first year",
+                link: "https://sillylix.itch.io/spikey",
+                tags: ["game jam", "simple", "first year project"],
+                highlight: "This was one of the first games I ever made",
                 isNew: false,
                 isInProgress: false
             },
