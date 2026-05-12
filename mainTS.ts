@@ -139,7 +139,7 @@ const projectGroups = [
     {
         id: "c-cpp",
         label: "C/C++",
-        description: "Projects that mainly use C/C++",
+        description: "Projects, where I mainly use C/C++",
         projects: [
             {
                 title: "Physics Prototype",
@@ -170,7 +170,7 @@ const projectGroups = [
     {
         id: "python",
         label: "Python",
-        description: "Projects that mainly use Python",
+        description: "Projects, where I mainly use Python",
         projects: [
             {
                 title: "Build pipeline script",
@@ -201,7 +201,7 @@ const projectGroups = [
     {
         id: "csharp",
         label: "C#",
-        description: "Projects that mainly use C#",
+        description: "Projects, where I mainly use C#",
         projects: [
             {
                 title: "Tool window demo",
@@ -232,7 +232,7 @@ const projectGroups = [
     {
         id: "go",
         label: "GO",
-        description: "Projects that mainly use GO",
+        description: "Projects, where I mainly use GO",
         projects: [
             {
                 title: "Build server",
