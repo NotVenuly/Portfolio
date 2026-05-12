@@ -136,7 +136,7 @@ const projectGroups = [
     {
         id: "c-cpp",
         label: "C/C++",
-        description: "Old projects fading from the top while fading out until they no longer visible.",
+        description: "Porjects that mainly use C/C++",
         projects: [
             {
                 title: "Physics Prototype",
@@ -167,7 +167,7 @@ const projectGroups = [
     {
         id: "python",
         label: "Python",
-        description: "Project names fade into view then are easy to explore through the grid.",
+        description: "Projects that mainly use Python",
         projects: [
             {
                 title: "Build pipeline script",
@@ -198,7 +198,7 @@ const projectGroups = [
     {
         id: "csharp",
         label: "C#",
-        description: "Currently selected language bolded and raised slightly above the other languages.",
+        description: "Projects that mainly use C#",
         projects: [
             {
                 title: "Tool window demo",
@@ -229,7 +229,7 @@ const projectGroups = [
     {
         id: "go",
         label: "GO",
-        description: "New projects fading in from the bottom of the screen to the top of the view.",
+        description: "Projects that mainly use GO",
         projects: [
             {
                 title: "Build server",
