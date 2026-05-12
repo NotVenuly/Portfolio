@@ -239,6 +239,15 @@ const projectGroups = [
                 isNew: false,
                 isInProgress: false
             },
+            {
+                title: "Catjack",
+                description: "A small and buggy game made for Finnish College Jam 8, in about 3 days",
+                link: "https://feekkuu.itch.io/catjack",
+                tags: ["game jam", "simple", "card game"],
+                highlight: "This was my second game jam",
+                isNew: false,
+                isInProgress: false
+            },
         ],
     },
     {
