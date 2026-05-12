@@ -311,6 +311,24 @@ body {
     gap: 22px;
 }
 
+.projects-placeholder {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    padding: 40px 24px;
+}
+
+.projects-placeholder p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+    max-width: 500px;
+    line-height: 1.7;
+    font-style: italic;
+}
+
 .project-card {
     aspect-ratio: 1 / 1;
     display: grid;

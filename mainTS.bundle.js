@@ -126,35 +126,7 @@ var projectGroups = [
     id: "python",
     label: "Python",
     description: "Projects, where I mainly use Python",
-    projects: [
-      {
-        title: "Build pipeline script",
-        description: "A Python automation tool for asset importing and build validation.",
-        link: "../OtherCode/Python/project_generator.py",
-        tags: ["Automation", "Tools", "Python"],
-        highlight: "Fast editing and repeatable pipeline generation.",
-        isNew: true,
-        isInProgress: false
-      },
-      {
-        title: "Gameplay simulator",
-        description: "A Python prototype for tuning combat flow and enemy spawn timing.",
-        link: "../OtherCode/Python/project_generator.py",
-        tags: ["Simulation", "Tuning", "Prototype"],
-        highlight: "Simulation tuned for quick iteration.",
-        isNew: false,
-        isInProgress: false
-      },
-      {
-        title: "Analytics exporter",
-        description: "A data export utility for gameplay metrics and player sessions.",
-        link: "../OtherCode/Python/project_generator.py",
-        tags: ["Data", "Export", "Metrics"],
-        highlight: "Collects session data for fast review.",
-        isNew: false,
-        isInProgress: false
-      }
-    ]
+    projects: []
   },
   {
     id: "csharp",
@@ -351,6 +323,15 @@ function renderProjectCards(group) {
     return;
   }
   projectsGrid.innerHTML = "";
+  if (group.projects.length === 0) {
+    const placeholder = document.createElement("div");
+    placeholder.className = "projects-placeholder";
+    placeholder.innerHTML = `
+            <p>Sorry! ${group.label} projects will be here soon, most likely I'm fixing bugs or trying to fix corrupted files.</p>
+        `;
+    projectsGrid.appendChild(placeholder);
+    return;
+  }
   group.projects.forEach((project) => {
     const card = document.createElement("article");
     card.className = "project-card";
