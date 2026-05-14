@@ -157,7 +157,7 @@ const projectGroups = [
                 description: "Physics visalizer in C++ using openGL",
                 link: "https://github.com/NotVenuly/GL-Physics",
                 tags: ["Graphics", "Physics", "Mathematics"],
-                highlight: "A project meant ot teach me more about simulating physics in code",
+                highlight: "A project meant to teach me more about simulating physics in code",
                 isNew: true,
                 isInProgress: true,
             },
@@ -167,7 +167,17 @@ const projectGroups = [
         id: "python",
         label: "Python",
         description: "Projects, where I mainly use Python",
-        projects: [],
+        projects: [
+            {
+                title: "Headline scraper",
+                description: "A python application that scrapes the the website 'hacker news' for news headlines and prints them ",
+                link: "https://github.com/NotVenuly/Web-Scraper",
+                tags: ["HTTP request handling", "beautifulsoup", "3rd party libraries"],
+                highlight: "A small python project that I will use for notetaking in the future",
+                isNew: true,
+                isInProgress: false,
+            },
+        ],
     },
     {
         id: "csharp",
