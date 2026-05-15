@@ -98,60 +98,6 @@ var previewSections = [
 ];
 var projectGroups = [
   {
-    id: "c-cpp",
-    label: "C/C++",
-    description: "Projects, where I mainly use C/C++",
-    projects: [
-      {
-        title: "Overcomplicated calculator",
-        description: "A basic c++ calculator but made overly complicated",
-        link: "https://github.com/NotVenuly/Over-complicated-calculator",
-        tags: ["Bit shifting", "Mathematics"],
-        highlight: "Good training for learning how bit shifting and low level programming works",
-        isNew: false,
-        isInProgress: false,
-        isUpdated: true
-      },
-      {
-        title: "GL physics",
-        description: "Physics visalizer in C++ using openGL",
-        link: "https://github.com/NotVenuly/GL-Physics",
-        tags: ["Graphics", "Physics", "Mathematics"],
-        highlight: "A project meant to teach me more about simulating physics in code",
-        isNew: true,
-        isInProgress: true,
-        isUpdated: false
-      }
-    ]
-  },
-  {
-    id: "python",
-    label: "Python",
-    description: "Projects, where I mainly use Python",
-    projects: [
-      {
-        title: "Headline scraper",
-        description: "A python application that scrapes the the website 'hacker news' for news headlines and prints them ",
-        link: "https://github.com/NotVenuly/Web-Scraper",
-        tags: ["HTTP request handling", "beautifulsoup", "3rd party libraries"],
-        highlight: "A small python project that I will use for notetaking in the future",
-        isNew: true,
-        isInProgress: false,
-        isUpdated: true
-      },
-      {
-        title: "2048 game",
-        description: "The classic 2048 game programmed entirely by me in python",
-        link: "https://github.com/NotVenuly/2048-game",
-        tags: ["Game logic and -design", "cmd game", "simple"],
-        highlight: "Python project to remind me of python programming math and logic",
-        isNew: true,
-        isInProgress: false,
-        isUpdated: true
-      }
-    ]
-  },
-  {
     id: "csharp",
     label: "C#",
     description: "Projects, where I mainly use C#",
@@ -210,6 +156,60 @@ var projectGroups = [
     ]
   },
   {
+    id: "c-cpp",
+    label: "C/C++",
+    description: "Projects, where I mainly use C/C++",
+    projects: [
+      {
+        title: "Overcomplicated calculator",
+        description: "A basic c++ calculator but made overly complicated",
+        link: "https://github.com/NotVenuly/Over-complicated-calculator",
+        tags: ["Bit shifting", "Mathematics"],
+        highlight: "Good training for learning how bit shifting and low level programming works",
+        isNew: false,
+        isInProgress: false,
+        isUpdated: true
+      },
+      {
+        title: "GL physics",
+        description: "Physics visalizer in C++ using openGL",
+        link: "https://github.com/NotVenuly/GL-Physics",
+        tags: ["Graphics", "Physics", "Mathematics"],
+        highlight: "A project meant to teach me more about simulating physics in code",
+        isNew: true,
+        isInProgress: true,
+        isUpdated: false
+      }
+    ]
+  },
+  {
+    id: "python",
+    label: "Python",
+    description: "Projects, where I mainly use Python",
+    projects: [
+      {
+        title: "Headline scraper",
+        description: "A python application that scrapes the the website 'hacker news' for news headlines and prints them ",
+        link: "https://github.com/NotVenuly/Web-Scraper",
+        tags: ["HTTP request handling", "beautifulsoup", "3rd party libraries"],
+        highlight: "A small python project that I will use for notetaking in the future",
+        isNew: true,
+        isInProgress: false,
+        isUpdated: true
+      },
+      {
+        title: "2048 game",
+        description: "The classic 2048 game programmed entirely by me in python",
+        link: "https://github.com/NotVenuly/2048-game",
+        tags: ["Game logic and -design", "cmd game", "simple"],
+        highlight: "Python project to remind me of python programming math and logic",
+        isNew: true,
+        isInProgress: true,
+        isUpdated: true
+      }
+    ]
+  },
+  {
     id: "go",
     label: "GO",
     description: "Projects, where I mainly use GO",
@@ -257,7 +257,7 @@ var projectGroups = [
         link: "https://github.com/NotVenuly/Typescript-training",
         tags: ["TypeScript", "Training", "Portfolio"],
         highlight: "Logic used in making my portfolio",
-        isNew: false,
+        isNew: true,
         isInProgress: false,
         isUpdated: true
       }
@@ -576,7 +576,7 @@ function setupContactForm() {
 }
 document.addEventListener("DOMContentLoaded", () => {
   setupLanguageTabs();
-  setActiveLanguage("c-cpp");
+  setActiveLanguage("csharp");
   setupPreviewTabs();
   transitionPreview("work");
   setupCodeRunner();
