@@ -177,6 +177,15 @@ const projectGroups = [
                 isNew: true,
                 isInProgress: false,
             },
+             {
+                title: "2048 game",
+                description: "The classic 2048 game programmed entirely by me in python",
+                link: "https://github.com/NotVenuly/2048-game",
+                tags: ["Game logic and -design", "cmd game", "simple"],
+                highlight: "Python project to remind me of python programming math and logic",
+                isNew: true,
+                isInProgress: true,
+            },
         ],
     },
     {
