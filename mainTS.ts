@@ -150,7 +150,7 @@ const projectGroups = [
                 tags: ["Bit shifting", "Mathematics"],
                 highlight: "Good training for learning how bit shifting and low level programming works",
                 isNew: false,
-                isInProgress: true,
+                isInProgress: false,
             },
             {
                 title: "GL physics",
