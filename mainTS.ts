@@ -7,6 +7,7 @@ interface ProjectItem {
     highlight: string;
     isNew: boolean;
     isInProgress: boolean;
+    isUpdated: boolean;
 }
 
 interface ProjectGroup {
@@ -151,6 +152,7 @@ const projectGroups = [
                 highlight: "Good training for learning how bit shifting and low level programming works",
                 isNew: false,
                 isInProgress: false,
+                isUpdated: true,
             },
             {
                 title: "GL physics",
@@ -160,6 +162,7 @@ const projectGroups = [
                 highlight: "A project meant to teach me more about simulating physics in code",
                 isNew: true,
                 isInProgress: true,
+                isUpdated: false,
             },
         ],
     },
@@ -176,6 +179,7 @@ const projectGroups = [
                 highlight: "A small python project that I will use for notetaking in the future",
                 isNew: true,
                 isInProgress: false,
+                isUpdated: true,
             },
              {
                 title: "2048 game",
@@ -185,6 +189,7 @@ const projectGroups = [
                 highlight: "Python project to remind me of python programming math and logic",
                 isNew: true,
                 isInProgress: true,
+                isUpdated: true,
             },
         ],
     },
@@ -201,7 +206,8 @@ const projectGroups = [
                 tags: ["Game", "Unity", "C#"],
                 highlight: "Final project for my school",
                 isNew: false,
-                isInProgress: false
+                isInProgress: false,
+                isUpdated: false,
             },
             {
                 title: "Kyber Kittens",
@@ -210,7 +216,8 @@ const projectGroups = [
                 tags: ["Game", "Unity", "Gamejam"],
                 highlight: "Made in only 4 days",
                 isNew: false,
-                isInProgress: false
+                isInProgress: false,
+                isUpdated: false,
             },
             {
                 title: "Repair and Cooling puzzle",
@@ -219,7 +226,8 @@ const projectGroups = [
                 tags: ["In game terminal", "2-players", "Real world use"],
                 highlight: "Instructions and context for the game is all in the Itch description",
                 isNew: false,
-                isInProgress: false
+                isInProgress: false,
+                isUpdated: false,
             },
             {
                 title: "Spikey adventures of Spik",
@@ -228,7 +236,8 @@ const projectGroups = [
                 tags: ["game jam", "simple", "first year project"],
                 highlight: "This was one of the first games I ever made",
                 isNew: false,
-                isInProgress: false
+                isInProgress: false,
+                isUpdated: false,
             },
             {
                 title: "Catjack",
@@ -237,7 +246,8 @@ const projectGroups = [
                 tags: ["game jam", "simple", "card game"],
                 highlight: "This was my second game jam",
                 isNew: false,
-                isInProgress: false
+                isInProgress: false,
+                isUpdated: false,
             },
         ],
     },
@@ -253,7 +263,8 @@ const projectGroups = [
                 tags: ["Server", "Go", "Toolchain"],
                 highlight: "Optimized for fast iteration and small deployments.",
                 isNew: false,
-                isInProgress: false
+                isInProgress: false,
+                isUpdated: false,
             },
             {
                 title: "File backupper",
@@ -262,7 +273,8 @@ const projectGroups = [
                 tags: ["Logging", "API", "Service"],
                 highlight: "Built for reliable log collection.",
                 isNew: false,
-                isInProgress: false
+                isInProgress: false,
+                isUpdated: true,
             }
         ],
 
@@ -281,6 +293,7 @@ const projectGroups = [
                 highlight: "The site you're looking at right now",
                 isNew: true,
                 isInProgress: false,
+                isUpdated: true,
             },
             {
                 title: "Typescript training",
@@ -290,6 +303,7 @@ const projectGroups = [
                 highlight: "Logic used in making my portfolio",
                 isNew: true,
                 isInProgress: false,
+                isUpdated: true,
             },
         ],
     },
@@ -306,6 +320,7 @@ const projectGroups = [
                 highlight: "Will be used in the future to make running code possible in my Portfolio",
                 isNew: true,
                 isInProgress: false,
+                isUpdated: true,
             },
             
         ],
@@ -399,6 +414,33 @@ function transitionPreview(newPreviewId: string) {
     });
 }
 
+function getProjectBadgeScore(project: ProjectItem) {
+    return Number(project.isNew) + Number(project.isInProgress) + Number(project.isUpdated);
+}
+
+function sortProjectsByBadgeCount(projectA: ProjectItem, projectB: ProjectItem) {
+    const scoreA = getProjectBadgeScore(projectA);
+    const scoreB = getProjectBadgeScore(projectB);
+
+    if (scoreA !== scoreB) {
+        return scoreB - scoreA;
+    }
+
+    if (projectA.isInProgress !== projectB.isInProgress) {
+        return projectB.isInProgress ? 1 : -1;
+    }
+
+    if (projectA.isUpdated !== projectB.isUpdated) {
+        return projectB.isUpdated ? 1 : -1;
+    }
+
+    if (projectA.isNew !== projectB.isNew) {
+        return projectB.isNew ? 1 : -1;
+    }
+
+    return projectA.title.localeCompare(projectB.title);
+}
+
 function renderProjectCards(group: ProjectGroup) {
     if (!projectsGrid) {
         return;
@@ -417,7 +459,9 @@ function renderProjectCards(group: ProjectGroup) {
         return;
     }
 
-    group.projects.forEach((project) => {
+    const sortedProjects = [...group.projects].sort(sortProjectsByBadgeCount);
+
+    sortedProjects.forEach((project) => {
         const card = document.createElement("article");
         card.className = "project-card";
         card.innerHTML = `
@@ -425,6 +469,7 @@ function renderProjectCards(group: ProjectGroup) {
                 <span class="project-title">${project.title}</span>
                 <div class="project-badges">
                     ${project.isNew ? '<span class="project-badge badge-new">New</span>' : ""}
+                    ${project.isUpdated ? '<span class="project-badge badge-updated">Recently Updated</span>' : ""}
                     ${project.isInProgress ? '<span class="project-badge badge-progress">In Progress</span>' : ""}
                 </div>
             </div>
