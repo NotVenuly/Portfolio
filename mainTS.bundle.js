@@ -204,8 +204,18 @@ var projectGroups = [
         tags: ["Game logic and -design", "cmd game", "simple"],
         highlight: "Python project to remind me of python programming math and logic",
         isNew: true,
-        isInProgress: true,
+        isInProgress: false,
         isUpdated: true
+      },
+      {
+        title: "Flappybird",
+        description: "My attempt at making flappybird from scratch using pyxel",
+        link: "https://github.com/NotVenuly/flappybird",
+        tags: ["Game from scratch", "pyxel", "Recreation"],
+        highlight: "Made completely from scratch",
+        isNew: true,
+        isInProgress: false,
+        isUpdated: false
       }
     ]
   },
