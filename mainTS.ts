@@ -225,7 +225,7 @@ const projectGroups = [
             {
                 title: "File re-encoder",
                 description: "Program that uses fstream include to re-encode text files into json files",
-                link: "https://github.com/NotVenuly/GL-Physics",
+                link: "https://github.com/NotVenuly/file-re-encoder",
                 tags: ["File re-encoding", "Pointers", "Low level coding"],
                 highlight: "This project is meant to teach me more about file encoding and how it works",
                 isNew: true,
