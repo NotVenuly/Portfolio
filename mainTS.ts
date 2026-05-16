@@ -259,6 +259,16 @@ const projectGroups = [
                 isInProgress: false,
                 isUpdated: false,
             },
+             {
+                title: "Ascii Webcam",
+                description: "Reacreates your camera view using ASCII art",
+                link: "https://github.com/NotVenuly/Ascii-webcamera",
+                tags: ["ASCII art", "Camera", "Pixel reading"],
+                highlight: "Automatically detects working camera",
+                isNew: true,
+                isInProgress: false,
+                isUpdated: false,
+            },
         ],
     },
     {
