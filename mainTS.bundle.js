@@ -176,7 +176,7 @@ var projectGroups = [
         link: "https://github.com/NotVenuly/GL-Physics",
         tags: ["Graphics", "Physics", "Mathematics"],
         highlight: "A project meant to teach me more about simulating physics in code",
-        isNew: true,
+        isNew: false,
         isInProgress: true,
         isUpdated: false
       },
