@@ -187,7 +187,7 @@ var projectGroups = [
         tags: ["File re-encoding", "Pointers", "Low level coding"],
         highlight: "This project is meant to teach me more about file encoding and how it works",
         isNew: true,
-        isInProgress: true,
+        isInProgress: false,
         isUpdated: true
       }
     ]
