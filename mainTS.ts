@@ -304,7 +304,7 @@ const projectGroups = [
                 highlight: "Built for reliable log collection.",
                 isNew: false,
                 isInProgress: false,
-                isUpdated: true,
+                isUpdated: false,
             }
         ],
 
@@ -331,9 +331,9 @@ const projectGroups = [
                 link: "https://github.com/NotVenuly/Typescript-training",
                 tags: ["TypeScript", "Training", "Portfolio"],
                 highlight: "Logic used in making my portfolio",
-                isNew: true,
+                isNew: false,
                 isInProgress: false,
-                isUpdated: true,
+                isUpdated: false,
             },
         ],
     },
@@ -350,7 +350,7 @@ const projectGroups = [
                 highlight: "Will be used in the future to make running code possible in my Portfolio",
                 isNew: true,
                 isInProgress: false,
-                isUpdated: true,
+                isUpdated: false,
             },
             
         ],
