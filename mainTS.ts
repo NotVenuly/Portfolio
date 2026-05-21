@@ -269,7 +269,7 @@ const projectGroups = [
                 isInProgress: false,
                 isUpdated: false,
             },
-             {
+            {
                 title: "Ascii Webcam",
                 description: "Reacreates your camera view using ASCII art",
                 link: "https://github.com/NotVenuly/Ascii-webcamera",
@@ -278,6 +278,16 @@ const projectGroups = [
                 isNew: true,
                 isInProgress: false,
                 isUpdated: false,
+            },
+            {
+                title: "File renamer",
+                description: "Gets all the files in the given folder and names them all with a given rule",
+                link: "https://github.com/NotVenuly/File-renamer",
+                tags: ["Automation tool", "File handling", "Python tool"],
+                highlight: "Automatically detects working camera",
+                isNew: true,
+                isInProgress: true,
+                isUpdated: true,
             },
         ],
     },

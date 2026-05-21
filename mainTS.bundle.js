@@ -236,6 +236,16 @@ var projectGroups = [
         isNew: true,
         isInProgress: false,
         isUpdated: false
+      },
+      {
+        title: "File renamer",
+        description: "Gets all the files in the given folder and names them all with a given rule",
+        link: "https://github.com/NotVenuly/File-renamer",
+        tags: ["Automation tool", "File handling", "Python tool"],
+        highlight: "Automatically detects working camera",
+        isNew: true,
+        isInProgress: true,
+        isUpdated: true
       }
     ]
   },
