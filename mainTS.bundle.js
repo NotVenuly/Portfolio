@@ -1,4 +1,21 @@
 // mainTS.ts
+var showHeroImage = false;
+function setupHeroImage() {
+  const heroCard = document.querySelector(".hero-card");
+  if (!heroCard || !showHeroImage) {
+    return;
+  }
+  if (!heroCard.querySelector(".hero-image")) {
+    const heroImageContainer = document.createElement("div");
+    heroImageContainer.className = "hero-image";
+    const portraitImg = document.createElement("img");
+    portraitImg.src = "./linkedin.png";
+    portraitImg.alt = "picture of me";
+    portraitImg.className = "portrait-img";
+    heroImageContainer.appendChild(portraitImg);
+    heroCard.appendChild(heroImageContainer);
+  }
+}
 var previewSections = [
   {
     id: "work",
@@ -615,6 +632,7 @@ function setupContactForm() {
   });
 }
 document.addEventListener("DOMContentLoaded", () => {
+  setupHeroImage();
   setupLanguageTabs();
   setActiveLanguage("csharp");
   setupPreviewTabs();

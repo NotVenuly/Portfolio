@@ -39,6 +39,27 @@ declare const emailjs: {
     sendForm(serviceId: string, templateId: string, form: HTMLFormElement): Promise<any>;
 };
 
+const showHeroImage = false;
+
+function setupHeroImage() {
+    const heroCard = document.querySelector(".hero-card") as HTMLElement | null;
+    if (!heroCard || !showHeroImage) {
+        return;
+    }
+
+    if (!heroCard.querySelector(".hero-image")) {
+        const heroImageContainer = document.createElement("div");
+        heroImageContainer.className = "hero-image";
+
+        const portraitImg = document.createElement("img");
+        portraitImg.src = "./linkedin.png";
+        portraitImg.alt = "picture of me";
+        portraitImg.className = "portrait-img";
+
+        heroImageContainer.appendChild(portraitImg);
+        heroCard.appendChild(heroImageContainer);
+    }
+}
 
 const previewSections: PreviewSection[] = [
     {
@@ -759,6 +780,7 @@ function setupContactForm() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    setupHeroImage();
     setupLanguageTabs();
     setActiveLanguage("csharp");
     setupPreviewTabs();
