@@ -28,6 +28,7 @@ html, body {
 body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .page-shell {
@@ -258,6 +259,7 @@ body {
     display: grid;
     gap: 24px;
     width: 100%;
+    max-width: 100%;
     background: transparent;
     border: none;
     border-radius: 32px;
@@ -307,7 +309,7 @@ body {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 22px;
 }
 
@@ -330,7 +332,6 @@ body {
 }
 
 .project-card {
-    aspect-ratio: 1 / 1;
     display: grid;
     grid-template-rows: auto 1fr auto auto;
     padding: 24px;
@@ -341,7 +342,6 @@ body {
     opacity: 0;
     transform: translateY(20px);
     animation: appearUp 0.2s forwards ease;
-    max-width: 500px;  /* ← Add this */
 }
 
 .project-card-top {

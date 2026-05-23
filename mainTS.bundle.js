@@ -259,9 +259,9 @@ var projectGroups = [
         description: "Gets all the files in the given folder and names them all with a given rule",
         link: "https://github.com/NotVenuly/File-renamer",
         tags: ["Automation tool", "File handling", "Python tool"],
-        highlight: "Automatically detects working camera",
+        highlight: "Good automation tool with real world use",
         isNew: true,
-        isInProgress: true,
+        isInProgress: false,
         isUpdated: true
       }
     ]
