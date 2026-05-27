@@ -263,6 +263,16 @@ var projectGroups = [
         isNew: true,
         isInProgress: false,
         isUpdated: true
+      },
+      {
+        title: "Cat animation",
+        description: "Uses the turtle drawing library for python to animate a cat coming out of a box and waving",
+        link: "https://github.com/NotVenuly/Cat-animation",
+        tags: ["Graphics", "Mathematics", "external Python library"],
+        highlight: "A fun simple idea, given to me by my girlfriend",
+        isNew: true,
+        isInProgress: true,
+        isUpdated: false
       }
     ]
   },
