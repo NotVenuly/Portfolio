@@ -185,7 +185,7 @@ var projectGroups = [
         highlight: "Good training for learning how bit shifting and low level programming works",
         isNew: false,
         isInProgress: false,
-        isUpdated: true
+        isUpdated: false
       },
       {
         title: "GL physics",
@@ -205,7 +205,7 @@ var projectGroups = [
         highlight: "This project is meant to teach me more about file encoding and how it works",
         isNew: true,
         isInProgress: false,
-        isUpdated: true
+        isUpdated: false
       }
     ]
   },
@@ -222,7 +222,7 @@ var projectGroups = [
         highlight: "A small python project that I will use for notetaking in the future",
         isNew: true,
         isInProgress: false,
-        isUpdated: true
+        isUpdated: false
       },
       {
         title: "2048 game",
@@ -232,7 +232,7 @@ var projectGroups = [
         highlight: "Python project to remind me of python programming math and logic",
         isNew: true,
         isInProgress: false,
-        isUpdated: true
+        isUpdated: false
       },
       {
         title: "Flappybird",
@@ -250,7 +250,7 @@ var projectGroups = [
         link: "https://github.com/NotVenuly/Ascii-webcamera",
         tags: ["ASCII art", "Camera", "Pixel reading"],
         highlight: "Automatically detects working camera",
-        isNew: true,
+        isNew: false,
         isInProgress: false,
         isUpdated: false
       },
@@ -304,7 +304,7 @@ var projectGroups = [
         link: "https://github.com/NotVenuly/Portfolio",
         tags: ["TypeScript", "Frontend", "Portfolio"],
         highlight: "The site you're looking at right now",
-        isNew: true,
+        isNew: false,
         isInProgress: false,
         isUpdated: true
       },
