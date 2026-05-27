@@ -271,8 +271,8 @@ var projectGroups = [
         tags: ["Graphics", "Mathematics", "external Python library"],
         highlight: "A fun simple idea, given to me by my girlfriend",
         isNew: true,
-        isInProgress: true,
-        isUpdated: false
+        isInProgress: false,
+        isUpdated: true
       }
     ]
   },
