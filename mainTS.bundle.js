@@ -203,7 +203,7 @@ var projectGroups = [
         link: "https://github.com/NotVenuly/file-re-encoder",
         tags: ["File re-encoding", "Pointers", "Low level coding"],
         highlight: "This project is meant to teach me more about file encoding and how it works",
-        isNew: true,
+        isNew: false,
         isInProgress: false,
         isUpdated: false
       },
@@ -215,7 +215,7 @@ var projectGroups = [
         highlight: "This can be used as a faster way to answer interview questions",
         isNew: true,
         isInProgress: true,
-        isUpdated: false
+        isUpdated: true
       }
     ]
   },
@@ -230,7 +230,7 @@ var projectGroups = [
         link: "https://github.com/NotVenuly/Web-Scraper",
         tags: ["HTTP request handling", "beautifulsoup", "3rd party libraries"],
         highlight: "A small python project that I will use for notetaking in the future",
-        isNew: true,
+        isNew: false,
         isInProgress: false,
         isUpdated: false
       },
@@ -240,7 +240,7 @@ var projectGroups = [
         link: "https://github.com/NotVenuly/2048-game",
         tags: ["Game logic and -design", "cmd game", "simple"],
         highlight: "Python project to remind me of python programming math and logic",
-        isNew: true,
+        isNew: false,
         isInProgress: false,
         isUpdated: false
       },
@@ -250,7 +250,7 @@ var projectGroups = [
         link: "https://github.com/NotVenuly/flappybird",
         tags: ["Game from scratch", "pyxel", "Recreation"],
         highlight: "Made completely from scratch",
-        isNew: true,
+        isNew: false,
         isInProgress: false,
         isUpdated: false
       },
@@ -270,9 +270,9 @@ var projectGroups = [
         link: "https://github.com/NotVenuly/File-renamer",
         tags: ["Automation tool", "File handling", "Python tool"],
         highlight: "Good automation tool with real world use",
-        isNew: true,
+        isNew: false,
         isInProgress: false,
-        isUpdated: true
+        isUpdated: false
       },
       {
         title: "Cat animation",
@@ -280,9 +280,9 @@ var projectGroups = [
         link: "https://github.com/NotVenuly/Cat-animation",
         tags: ["Graphics", "Mathematics", "external Python library"],
         highlight: "A fun simple idea, given to me by my girlfriend",
-        isNew: true,
+        isNew: false,
         isInProgress: false,
-        isUpdated: true
+        isUpdated: false
       }
     ]
   },
@@ -351,7 +351,7 @@ var projectGroups = [
         link: "https://github.com/NotVenuly/Node-training",
         tags: ["training", "API", "Request based code execution"],
         highlight: "Will be used in the future to make running code possible in my Portfolio",
-        isNew: true,
+        isNew: false,
         isInProgress: false,
         isUpdated: false
       }
