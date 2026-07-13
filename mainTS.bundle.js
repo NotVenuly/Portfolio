@@ -206,6 +206,16 @@ var projectGroups = [
         isNew: true,
         isInProgress: false,
         isUpdated: false
+      },
+      {
+        title: "Interview exercises",
+        description: "Project made up of a few interview exercise I found by googling",
+        link: "https://github.com/NotVenuly/Interview-exercises",
+        tags: ["Interview parctice", "Training", "Professional use"],
+        highlight: "This can be used as a faster way to answer interview questions",
+        isNew: true,
+        isInProgress: true,
+        isUpdated: false
       }
     ]
   },
