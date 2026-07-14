@@ -96,7 +96,7 @@ var previewSections = [
       },
       {
         title: "Game development",
-        description: "I've studied game development for 3 years and I'm about to graduate with close to the highest marks"
+        description: "I studied game development for 3 years and graduated with close to highest marks"
       },
       {
         title: "Algorithms",
