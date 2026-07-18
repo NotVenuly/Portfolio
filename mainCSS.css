@@ -344,6 +344,15 @@ body {
     animation: appearUp 0.2s forwards ease;
 }
 
+.copyright{
+    font-size: 0.75rem;
+    font-weight: 700;
+    max-width: 100vw;
+    padding: 10px;
+    background-color: #1a1b28;
+    text-align: center;
+}
+
 .project-card-top {
     display: flex;
     justify-content: space-between;
