@@ -212,9 +212,9 @@ var projectGroups = [
         description: "Project made up of a few interview exercise I found by googling",
         link: "https://github.com/NotVenuly/Interview-exercises",
         tags: ["Interview parctice", "Training", "Professional use"],
-        highlight: "This can be used as a faster way to answer interview questions",
+        highlight: "Projects include OOP training and common interview questions like palindrome checking",
         isNew: true,
-        isInProgress: true,
+        isInProgress: false,
         isUpdated: true
       }
     ]
