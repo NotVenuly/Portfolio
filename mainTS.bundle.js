@@ -47,6 +47,17 @@ var previewSections = [
         link: "https://www.odysseuslarp.com/",
         articleLink: "https://criticalpathsite.wordpress.com/2024/09/02/odysseus-2024-a-retrospective/",
         date: "03.2024 - 06.2024"
+      },
+      {
+        title: "Scars of Calamity/Project Tartarus || Lead programmer",
+        description: `The project that I am currently working on is called Project Tartarus, previously called Scars of Calamity.
+                This project started due to the original mod Calamity for terraria ceasing development.
+                A few people decided to continue the development of this mod that had 9 million downloads, and I was one of those people.
+                I applied to be a programmer for Scars of Calamity, and got the lead programmer position. 
+                Later on as leadership changed the developer team decided to continue developing this mod under a new name Project Tartarus, which I am currently the lead programmer of.
+                
+                Our original Scars of Calamity launch got over 1 500 supporters under 48 hours.`,
+        date: "07.2026 - present"
       }
     ]
   },
