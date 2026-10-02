@@ -245,6 +245,16 @@ const projectGroups = [
                 isUpdated: false,
             },
             {
+                title: "Job scraper",
+                description: "Scrapes common websites for open jobs and parses them into seperate pages",
+                link: "https://github.com/NotVenuly/Job-scraper/",
+                tags: ["external libraries", "Backend development", "HTML parsing"],
+                highlight: "Makes applying for jobs vastly easier",
+                isNew: true,
+                isInProgress: false,
+                isUpdated: true,
+            },
+            {
                 title: "GL physics",
                 description: "Physics visalizer in C++ using openGL",
                 link: "https://github.com/NotVenuly/GL-Physics",
