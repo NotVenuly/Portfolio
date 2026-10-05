@@ -43,11 +43,8 @@ body {
     display: grid;
     grid-template-columns: 1.4fr 0.9fr;
     gap: 28px;
-    background: linear-gradient(180deg, rgba(155, 124, 255, 0.24), rgba(116, 84, 244, 0.22));
-    border: 1px solid rgba(255,255,255,0.16);
-    border-radius: 32px;
+    border-radius: 3px;
     padding: 32px;
-    box-shadow: var(--shadow);
     overflow: hidden;
 }
 
@@ -189,6 +186,14 @@ body {
     font-weight: 700;
 }
 
+.mini-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
 .preview-card h2 {
     font-size: clamp(2.4rem, 4vw, 3.6rem);
     margin: 0;
@@ -255,6 +260,10 @@ body {
     animation: slideOutRight 0.35s ease forwards;
 }
 
+.lang-header{
+    font-weight: 600;
+}
+
 .languages-section {
     display: grid;
     gap: 24px;
@@ -262,42 +271,71 @@ body {
     max-width: 100%;
     background: transparent;
     border: none;
-    border-radius: 32px;
     padding: 32px;
     min-height: auto;
+    
 }
 
 .language-actions {
     display: grid;
     gap: 18px;
     padding-bottom: 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
+
+    /* THIS IS THE LINE */
+    /* border-bottom: 1px solid rgba(255,255,255,0.12); */
 }
 
 .language-tabs {
     display: flex;
-    gap: 14px;
+    gap: 100px;
     flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
 }
 
 .language-tab {
-    border: 1px solid rgba(255,255,255,0.16);
-    background: rgba(255,255,255,0.08);
-    color: var(--muted);
-    padding: 10px 14px;
-    border-radius: 18px;
+    background: transparent;          
+    border: none;                     
     cursor: pointer;
-    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    color: #c5c5c5;
+    transition: transform 0.2s ease, color 0.2s ease;
     font-weight: 700;
     min-height: 48px;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     white-space: nowrap;
+    
+    
+}
+
+.language-tab:hover {
+    transform: translateY(-4px);
+    font-size: 1.3rem;
+    color: rgb(83, 189, 157);
+}
+
+.language-tab::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 6px;
+    width: 0;
+    height: 3px;
+    background: rgb(83, 189, 157);
+    transition: width 0.20s ease, left 0.20s ease;
+}
+
+.language-tab:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 .language-tab.active {
-    background: linear-gradient(135deg, #8ee9d4, #39d2c6);
-    color: #1a1b28;
-    transform: translateY(0);
+    transform: translateY(-4px);
+    color: rgb(103, 228, 190);
+    font-size: 1.8rem;
 }
 
 .language-description {
@@ -305,6 +343,8 @@ body {
     color: rgba(255,255,255,0.82);
     max-width: 760px;
     line-height: 1.7;
+    padding-left: 10px;
+    font-size: 1.1rem;
 }
 
 .projects-grid {
@@ -337,7 +377,7 @@ body {
     padding: 24px;
     background: linear-gradient(180deg, rgba(71,152,255,0.16), rgba(8,48,68,0.25));
     border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 28px;
+    border-radius: 2px;
     box-shadow: 0 24px 60px rgba(0,0,0,0.18);
     opacity: 0;
     transform: translateY(20px);
@@ -378,7 +418,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 6px 10px;
-    border-radius: 999px;
+    border-radius: 5px;
     font-size: 0.72rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -387,7 +427,7 @@ body {
 
 .badge-new {
     background: rgba(75, 227, 182, 0.2);
-    color: #4be3b6;
+    color: rgb(75, 227, 182);
     border: 1px solid rgba(75, 227, 182, 0.3);
 }
 
@@ -425,7 +465,7 @@ body {
 .project-tags span {
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 16px;
+    border-radius: 4px;
     padding: 8px 12px;
     font-size: 0.84rem;
     color: rgba(255,255,255,0.84);
@@ -437,7 +477,7 @@ body {
     justify-content: center;
     width: 100%;
     padding: 14px 18px;
-    border-radius: 16px;
+    border-radius: 4px;
     background: rgba(0,0,0,0.3);
     color: #eef5ff;
     text-decoration: none;
@@ -453,10 +493,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    border-radius: 32px;
     padding: 32px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
 }
 
 .contact-left {
